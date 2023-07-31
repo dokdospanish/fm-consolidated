@@ -1,0 +1,125 @@
+html {
+  --s: 100px; /* control the size */
+  --_g: #b0ff9c16 90deg,rgb(220, 240, 240) 0;
+  background: 
+    conic-gradient(from 90deg at 2px 2px,var(--_g)),
+    conic-gradient(from 90deg at 1px 1px,var(--_g));
+  background-size: var(--s) var(--s), calc(var(--s)/5) calc(var(--s)/5);
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: 700;
+  color: rgb(31, 59, 57);;
+  background: radial-gradient(circle, rgba(255,255,255,0) 50%, rgba(148, 148, 148, 0.314) 100%);
+}
+
+h1 {
+  text-align: center;
+}
+
+.avoid-break {
+  display:inline-block
+}
+
+a{
+  color: hsl(185, 85%, 33%);
+}
+
+.block-link {
+  height: 16rem;
+  flex-grow: 1;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-decoration: none;
+
+  /* for toast */
+  display: flex;
+  flex-direction: column;
+  justify-content: end;
+  overflow: hidden;
+}
+
+.label {
+  padding: 0.8rem 0.4rem;
+  background: rgba(61, 112, 109, 0.812);
+  color: #fef;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.block-link:hover {
+  flex-grow: 2.2;
+}
+
+#tl {
+  background-image: url('./assets/profile.png');
+  border-radius: 1.5rem;
+}
+#tr {
+  background-image: url('./assets/results.png');
+  border-radius: 1.5rem;
+}
+#bl {
+  background-image: url('./assets/testimonials.png');
+  border-radius: 1.5rem;
+}
+#br {
+  background-image: url('./assets/rating.png');
+  border-radius: 1.5rem;
+}
+
+main {
+  padding: 2rem 1rem 1rem 1rem;
+}
+
+section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+}
+
+section:last-child {
+  margin-bottom: 0;
+}
+
+
+@media (min-width: 525px) {
+  main {
+    margin: 0 auto;
+    max-width:750px;
+  }
+  
+  section {
+    flex-direction: row;
+  }
+
+  #tl {
+    border-radius: 1.5rem 0 0 0;
+  }
+  #tr {
+    border-radius: 0 1.5rem 0 0;
+  }
+  #bl {
+    border-radius: 0 0 0 1.5rem;
+    background-position: left;
+  }
+  #br {
+    border-radius: 0 0 1.5rem 0;
+  }
+
+  .label {
+    transform: translateY(100%);
+    transform-origin: bottom;
+    transition: all 0.3s ease-out;
+  }
+  
+  .block-link:hover > .label {
+    transform: translateY(0);
+  }
+}
